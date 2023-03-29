@@ -30,5 +30,6 @@ public class Persona {
 	private int codiceFiscale;
 	
 	@Column(name = "listaAppartamenti")
+	//relazione da aggiungere
 	private List<Appartamento> listaAppartamenti;
 }

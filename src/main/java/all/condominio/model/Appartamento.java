@@ -22,12 +22,14 @@ public class Appartamento {
 	private Long id;
 	
 	@Column(name="condominio")
+	//relazione da aggiungere
 	private Long condominio;
 	
 	@Column(name="numero")
 	private int numero;
 	
 	@Column(name="listaProprietari")
+	//relazione da aggiungere
 	private List<Persona> listaProprietari;
 	
 	@Column(name="metratura")

@@ -19,6 +19,7 @@ public class Garage {
 	private Long id;
 	
 	@Column(name="condominio")
+	//relazione da aggiungere
 	private Long condominio;
 	
 	@Column(name="numero")

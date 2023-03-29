@@ -26,9 +26,11 @@ public class Condominio {
 	private String via;
 	
 	@Column(name = "listaAppartamenti")
+	//relazione da aggiungere
 	private List<Appartamento> listaAppartamenti;
 	
 	@Column(name = "listaGarage")
+	//relazione da aggiungere
 	private List<Garage> listaGarage;
 
 }
