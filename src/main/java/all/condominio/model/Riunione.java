@@ -24,6 +24,7 @@ public class Riunione {
 	private String data;
 	
 	@Column(name="listaPersone")
+	//relazione da aggiungere
 	private List<Persona> listaPersone;
 	
 	@Column(name="listaPartecipanti")

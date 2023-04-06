@@ -1,0 +1,269 @@
+openapi: 3.0.0
+info:
+  title: Gestione Condominio
+  version: 1.0.0
+  
+paths:
+  /condominio:
+    get:
+      operationId: tuttiCondomomini
+      description: Stampa tutti i condominio inseriti
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/veicoloDTO'
+        '401':
+          description: Errore
+    post:
+      operationId: aggiungiCondominio
+      description: aggiunge un condominio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/veicoloDTO'
+        required: true
+      responses:
+        '200':
+          description: Condominio aggiunto
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/veicoloDTO'
+        '400':
+          description: Errore
+  /condominio/{id}:
+    delete:
+      operationId: cancellaCondominio
+      description: rimuove un condominio passando l'id
+      parameters: 
+        - name: id
+          in: path
+          description: ID of the Person to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+          
+      responses:
+        '200':
+          description: Rimosso
+          content:
+            application/json:
+              schema:
+                type: string
+                
+  /appartamento:
+    get:
+      operationId: tuttiAppartamenti
+      description: Stampa tutti gli appartamenti inseriti
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/veicoloDTO'
+        '401':
+          description: Errore
+    post:
+      operationId: aggiungiAppartamento
+      description: aggiunge un'appartamento
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/veicoloDTO'
+        required: true
+      responses:
+        '200':
+          description: Appartamento aggiunto
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/veicoloDTO'
+        '400':
+          description: Errore
+          
+  /appartamento/{id}:
+    delete:
+      operationId: cancellaAppartamento
+      description: rimuove un appartamento passando l'id
+      parameters: 
+        - name: id
+          in: path
+          description: ID of the Person to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+          
+      responses:
+        '200':
+          description: Rimosso
+          content:
+            application/json:
+              schema:
+                type: string
+                
+  /garage:
+    get:
+      operationId: tuttigarage
+      description: Stampa tutti gli garage inseriti
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/veicoloDTO'
+        '401':
+          description: Errore
+    post:
+      operationId: aggiungigarage
+      description: aggiunge un'garage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/veicoloDTO'
+        required: true
+      responses:
+        '200':
+          description: garage aggiunto
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/veicoloDTO'
+        '400':
+          description: Errore
+          
+  /garage/{id}:
+    delete:
+      operationId: cancellagarage
+      description: rimuove un garage passando l'id
+      parameters: 
+        - name: id
+          in: path
+          description: ID ogarage to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+          
+      responses:
+        '200':
+          description: Rimosso
+          content:
+            application/json:
+              schema:
+                type: string
+                
+  /riunione:
+    get:
+      operationId: tuttiriunione
+      description: Stampa tutti gli riunione inseriti
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/veicoloDTO'
+        '401':
+          description: Errore
+    post:
+      operationId: aggiungiriunione
+      description: aggiunge un'riunione
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/veicoloDTO'
+        required: true
+      responses:
+        '200':
+          description: riunione aggiunto
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/veicoloDTO'
+        '400':
+          description: Errore
+          
+  /riunione/{id}:
+    delete:
+      operationId: cancellariunione
+      description: rimuove un riunione passando l'id
+      parameters: 
+        - name: id
+          in: path
+          description: ID riunione to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+          
+      responses:
+        '200':
+          description: Rimosso
+          content:
+            application/json:
+              schema:
+                type: string
+  /asoccia/{idAppartamento}-{idPersona}:
+    put:
+      operationId: associaAppartamentoPersona
+      description: Associa ad un appartamento una persona
+      parameters: 
+        - name: idAppartamento
+          in: path
+          description: id del appartamento
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: idPersona
+          in: path
+          description: id della Persona
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Associazione completata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/veicoloDTO'
+        
+      
+      
+  
+components:
+  schemas:
+    veicoloDTO:
+      type: object
+      properties:
+        marca:
+          type: string
+        modello:
+          type: string
+        prezzo:
+          type: number
+        targa:
+          type: string
+        numeroRuote:
+          type: number
