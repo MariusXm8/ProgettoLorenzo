@@ -223,7 +223,7 @@ paths:
               schema:
                 type: string
                 
-  /asoccia/{idAppartamento},{idPersona}:
+  /asoccia/{idAppartamento}/{idPersona}:
     put:
       operationId: associaAppartamentoPersona
       description: Associa ad un appartamento una persona

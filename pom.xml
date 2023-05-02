@@ -64,6 +64,17 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency><!-- Deppency swagger generated source-->
+    <groupId>org.openapitools</groupId>
+    <artifactId>jackson-databind-nullable</artifactId>
+    <version>0.2.6</version>
+</dependency>
+<!-- To risolve entitymanager error-->
+<dependency>
+    <groupId>org.glassfish</groupId>
+    <artifactId>javax.xml.bind</artifactId>
+    <version>10.0-b28</version>
+</dependency>
 	</dependencies>
 	<build>
 		<plugins>
